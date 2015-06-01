@@ -54,6 +54,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.bq.gpu_to_cpu_unsupported=1 \
     camera2.portability.force_api=1
 
+# Low-RAM optimizations
+ADDITIONAL_BUILD_PROPERTIES += \
+    ro.config.low_ram=true \
+    persist.sys.force_highendgfx=true \
+    dalvik.vm.jit.codecachesize=0 \
+    config.disable_atlas=true \
+    ro.config.max_starting_bg=8 \
+    ro.sys.fw.bg_apps_limit=16
+
 # SGX540 is slower with the scissor optimization enabled
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.disable_scissor_opt=true
